@@ -1,6 +1,7 @@
 // --- 使用者必須設定 ---
 // 你的後端 API 公開 URL，結尾不要加斜線
-const API_BASE_URL = 'http://localhost:8765';
+const RAW_API_BASE_URL = 'http://localhost:8765';
+const API_BASE_URL = RAW_API_BASE_URL.replace(/\/+$/, '');
 // --------------------
 
 const tokenSection = document.getElementById('token-section');
@@ -306,11 +307,9 @@ async function uploadFile(file) {
             throw new Error(result.detail || `伺服器錯誤: ${response.status}`);
         }
         
-        // 替換 localhost 為 API_BASE_URL 的主機部分
-        const backendUrl = new URL(result.url);
-        const apiBaseUrlObj = new URL(API_BASE_URL);
-        backendUrl.host = apiBaseUrlObj.host;
-        const finalImageUrl = backendUrl.toString().replace(/"/g, '').trim();
+        // 後端返回的 result.url 已經是完整的 URL，直接使用
+        // 後端返回的 result.url 已經是完整的 URL，對其進行正規化處理，移除多餘的斜線
+        const finalImageUrl = result.url.replace(/([^:]\/)\/+/g, '$1').replace(/"/g, '').trim();
         resultUrlInput.value = finalImageUrl;
         copyButton.style.display = 'inline-block';
         showMessage('檔案上傳成功！', 'success');
