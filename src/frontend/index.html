@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PicoUploader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Token 輸入區 -->
+        <div id="token-section">
+            <h1>驗證</h1>
+            <p>請輸入您的 Bearer Token</p>
+            <input type="password" id="token-input" placeholder="貼上你的 Token">
+            <button id="save-token-button">儲存並開始</button>
+            <p id="message-display" class="message-hidden"></p> <!-- 新增訊息顯示區 -->
+        </div>
+
+        <!-- 上傳區 (預設隱藏) -->
+        <div id="upload-section" style="display: none;">
+            <h1>PicoUploader</h1>
+            <div id="drop-zone"><p>將檔案拖到這裡</p></div>
+            <div id="result">
+                <p>上傳成功後，連結會顯示在這裡</p>
+                <input type="text" id="result-url" readonly>
+                <button id="copy-button" style="display: none;">複製</button>
+            </div>
+            <button id="logout-button" style="margin-top: 20px;">登出</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

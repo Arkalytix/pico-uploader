@@ -1,0 +1,4 @@
+# 忽略所有檔案，除了 project-guideline/README.md
+*
+!project-guideline/
+!project-guideline/README.md

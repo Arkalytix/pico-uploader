@@ -1,0 +1,35 @@
+# 排除 .env 檔案，因為會透過 volume 掛載
+.env
+*.env
+
+# 排除上傳的檔案，會透過 volume 掛載
+uploads/
+
+# 排除 git 相關檔案
+.git/
+.gitignore
+
+# 排除 Python 快取檔案
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# 排除虛擬環境
+.venv/
+venv/
+
+# 排除 IDE 檔案
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 排除系統檔案
+.DS_Store
+Thumbs.db
+
+# 排除文件
+README.md
+*.md
